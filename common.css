@@ -54,6 +54,7 @@ pre > code {
     padding: 10px;
     border-radius: 5px;
     overflow-x: scroll;
+    font-size: 16px;
 }
 
 :not(pre) > code {
@@ -64,4 +65,8 @@ pre > code {
 
 a {
     color: #f6b17a;
+}
+
+.hljs-comment, .hljs-quote {
+    color: #7077a1
 }

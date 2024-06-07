@@ -53,6 +53,7 @@ pre > code {
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
+    overflow-x: scroll;
 }
 
 :not(pre) > code {

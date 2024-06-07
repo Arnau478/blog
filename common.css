@@ -1,0 +1,58 @@
+html {
+    padding: 0px;
+    margin: 0px;
+    background-color: #2d3250;
+    color: #ffffff;
+    font-family: "Fira Sans";
+    font-size: 18px;
+}
+
+body {
+    margin-top: 180px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
+h1.title {
+    color: #f6b17a;
+    margin-bottom: 50px;
+}
+
+.date {
+    display: block;
+    color: #f6b17a;
+    opacity: 0.5;
+    font-size: 14px;
+    margin-bottom: -20px;
+}
+
+.content > p:first-child {
+    opacity: 0.75;
+    margin-top: -40px;
+    margin-bottom: 45px;
+    padding-bottom: 5px;
+    border-bottom: #ffffffc0 solid 2px;
+    font-size: 15px;
+}
+
+code {
+    background-color: #424769;
+    font-family: "Fira Mono";
+}
+
+pre > code {
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+:not(pre) > code {
+    display: inline;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+a {
+    color: #f6b17a;
+}

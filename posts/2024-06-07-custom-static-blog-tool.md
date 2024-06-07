@@ -1,6 +1,5 @@
 ---
 title: A custom static blog tool
-date: 2024-06-07
 ---
 
 I wanted to make my own blog for a long time, but couldn't decide on what static page tool to use. I considered Jekyll and Hugo, but they both seem to be quite bloated. So I made my own.

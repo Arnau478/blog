@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="common.css">
+        <style>
+            ul.posts {
+                list-style-type: none;
+                padding: 0px;
+            }
+
+            ul.posts > li {
+                padding: 5px;
+                margin: 0px;
+            }
+
+            ul.posts > li > a.title {
+                font-size: 24px;
+            }
+
+            .post-list-date {
+                color: #f6b17a;
+                opacity: 0.5;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Posts</h1>
+        <ul class="posts">
+            <%post{%>
+                <li>
+                    <a class="title" href="<%url%>"><%title%></a>
+                    <div class="post-list-date"><%date%></div>
+                </li>
+            <%}post%>
+        </ul>
+    <body>
+</html>

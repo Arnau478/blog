@@ -59,6 +59,7 @@ h1.title {
 code {
     background-color: #424769;
     font-family: "Fira Mono";
+    font-size: 16px;
 }
 
 pre > code {
@@ -67,7 +68,6 @@ pre > code {
     padding: 10px;
     border-radius: 5px;
     overflow-x: scroll;
-    font-size: 16px;
 }
 
 :not(pre) > code {
@@ -82,4 +82,15 @@ a {
 
 .hljs-comment, .hljs-quote {
     color: #7077a1
+}
+
+th, td {
+    border: white 1px solid;
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px;
+    width: calc(100% - 40px);
 }

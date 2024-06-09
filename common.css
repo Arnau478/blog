@@ -94,3 +94,14 @@ table {
     margin: 20px;
     width: calc(100% - 40px);
 }
+
+@media screen and (max-width: 800px) {
+    pre > code, table {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    table {
+        width: 100%;
+    }
+}

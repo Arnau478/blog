@@ -26,6 +26,19 @@ h1.title {
     margin-bottom: 50px;
 }
 
+.back {
+    display: block;
+    text-align: right;
+    color: #f6b17a;
+    opacity: 0.75;
+    font-size: 14px;
+    margin-bottom: -30px;
+}
+
+.back::before {
+    content: "< ";
+}
+
 .date {
     display: block;
     color: #f6b17a;

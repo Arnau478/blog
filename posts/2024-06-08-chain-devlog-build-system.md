@@ -74,6 +74,7 @@ const kernel = b.addExecutable(.{
     .name = "chain",
     .target = kernel_target,
     .optimize = optimize,
+    .code_model = .kernel,
     .root_source_file = b.path("kernel/src/main.zig"),
 });
 kernel.setLinkerScript(b.path("kernel/link-x86_64.ld"));

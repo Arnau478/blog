@@ -1,0 +1,39 @@
+<extend template="base.html" />
+
+<title id="title" var="$page.title"></title>
+
+<head id="head">
+    <style>
+.title {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.back {
+    text-decoration: none;
+}
+
+.tag {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 0.8em;
+}
+
+table {
+    width: 100%;
+}
+    </style>
+</head>
+
+<div id="content">
+    <a class="back" href=".."><i class="fa-solid fa-chevron-left"></i> back</a>
+    <h1 class="title" var="$page.title"></h1>
+    <span loop="$page.tags">
+        <span class="tag" var="$loop.it"></span>
+    </span>
+    <span>&nbsp;</span>
+    <span style="float: right;"><i class="fa-regular fa-calendar"></i> <span var="$page.date.format('January 02, 2006')"></span></span>
+    <div id="page" var="$page.content"></div>
+</div>

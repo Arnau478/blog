@@ -1,0 +1,13 @@
+.{
+    .name = "blog",
+    .version = "0.0.0",
+    .dependencies = .{
+        .zine = .{
+            .url = "git+https://github.com/kristoff-it/zine#c4924570fa54ab204bb8b1bf1a140d0cc04ab08a",
+            .hash = "1220e2050b5fb6788675c0af6b2bfb601226fc90fb32aeeccc95cf9f4945543bd13a",
+        },
+    },
+    .paths = .{
+        "",
+    },
+}

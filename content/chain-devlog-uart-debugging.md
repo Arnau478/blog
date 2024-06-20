@@ -1,8 +1,15 @@
 ---
-title: "Chain devlog 2: UART debugging"
+{
+    .title = "Chain devlog 2: UART debugging",
+    .date = @date("2024-06-09"),
+    .author = "Arnau Camprubí",
+    .draft = false,
+    .layout = "post.html",
+    .tags = ["zig", "osdev"],
+}
 ---
 
-In the [last devlog](chain-devlog-build-system.html) we set up the barebones for a kernel. We'll write a lot of bugs, so being able to debug the kernel should be our main priority.
+In the [last devlog](../chain-devlog-build-system) we set up the barebones for a kernel. We'll write a lot of bugs, so being able to debug the kernel should be our main priority.
 
 When you have a normal application the simplest way of debugging is printing stuff. However, our kernel is not running under an OS, so we cannot simply "print to a terminal". One option would be to print to the screen, but that would require a lot of prior work (which we wouldn't be able to debug). It would also require, well, having a screen. There is a much better option that virtually all computers support: UART.
 
@@ -74,21 +81,20 @@ pub const Speed = enum(usize) {
 ```
 
 We can access what we call *registers* via I/O ports. We have a different base address for each serial port, to which we add an offset to access a specific register. Some have a different meaning depending on whether you're reading it or writing it. Some also change meaning depending on the DLAB flag:
-<table>
-    <tr><th>Offset</th><th>DLAB</th><th>I/O Direction</th><th>Register                               </th></tr>
-    <tr><td>0     </td><td>0   </td><td>Read         </td><td>Receive buffer                         </td></tr>
-    <tr><td>0     </td><td>0   </td><td>Write        </td><td>Transmit buffer                        </td></tr>
-    <tr><td>1     </td><td>0   </td><td>Read/Write   </td><td>Interrupt enable                       </td></tr>
-    <tr><td>0     </td><td>1   </td><td>Read/Write   </td><td>Baudrate divisor least significant byte</td></tr>
-    <tr><td>1     </td><td>1   </td><td>Read/Write   </td><td>Baudrate divisor most significant byte </td></tr>
-    <tr><td>2     </td><td>-   </td><td>Read         </td><td>Interrupt identification               </td></tr>
-    <tr><td>2     </td><td>-   </td><td>Write        </td><td>FIFO control register                  </td></tr>
-    <tr><td>3     </td><td>-   </td><td>Read/Write   </td><td>Line control register                  </td></tr>
-    <tr><td>4     </td><td>-   </td><td>Read/Write   </td><td>Modem control register                 </td></tr>
-    <tr><td>5     </td><td>-   </td><td>Read         </td><td>Line status register                   </td></tr>
-    <tr><td>6     </td><td>-   </td><td>Read         </td><td>Modem status register                  </td></tr>
-    <tr><td>7     </td><td>-   </td><td>Read/Write   </td><td>Scratch register                       </td></tr>
-</table>
+| Offset | DLAB | I/O Direction | Register                                |
+| ------ | ---- | ------------- | --------------------------------------- |
+| 0      | 0    | Read          | Receive buffer                          |
+| 0      | 0    | Write         | Transmit buffer                         |
+| 1      | 0    | Read/Write    | Interrupt enable                        |
+| 0      | 1    | Read/Write    | Baudrate divisor least significant byte |
+| 1      | 1    | Read/Write    | Baudrate divisor most significant byte  |
+| 2      | -    | Read          | Interrupt identification                |
+| 2      | -    | Write         | FIFO control register                   |
+| 3      | -    | Read/Write    | Line control register                   |
+| 4      | -    | Read/Write    | Modem control register                  |
+| 5      | -    | Read          | Line status register                    |
+| 6      | -    | Read          | Modem status register                   |
+| 7      | -    | Read/Write    | Scratch register                        |
 
 ## Initialization
 The first thing we have to do is initialize the chip. This involves configuring a few things. We'll only configure the first serial port, which has the I/O port base `0x3F8`.

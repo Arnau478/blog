@@ -1,5 +1,12 @@
 ---
-title: "Chain devlog 1: build system"
+{
+    .title = "Chain devlog 1: build system",
+    .date = @date("2024-06-08"),
+    .author = "Arnau Camprubí",
+    .draft = false,
+    .layout = "post.html",
+    .tags = ["zig", "osdev"],
+}
 ---
 
 This is the first devlog of a series where I'll be writing (well, rewriting) chain, a modern kernel and OS focused on simplicity and first principles.
@@ -99,7 +106,7 @@ _ = stub_iso_tree.addCopyFile(b.dependency("limine", .{}).path("limine-uefi-cd.b
 ```
 
 We'll create the stub image bootloader (limine) configuration, `limine.cfg`:
-```txt
+```
 :chain
     PROTOCOL=limine
     KERNEL_PATH=boot:///kernel
@@ -157,7 +164,7 @@ export fn _start() callconv(.C) noreturn {
 
 ## Linker script
 The compiler (or rather, the linker) doesn't know how to arrange the compiled code and data into an ELF file. That's what linker scripts are for. When compiling normal applications we don't need to create a linker script, as the compiler will use the default one for the target you are compiling for. However, this doesn't work for a kernel. We need to write out own. I'm not going to explain every single line (it's not *that* important), but I will put it here either way:
-```txt
+```
 TARGET(elf64-x86-64)
 ENTRY(_start)
 

@@ -1,0 +1,23 @@
+<extend template="base.html" />
+
+<title id="title">arnau blog</title>
+
+<head id="head">
+    <style>
+.post-title {
+    color: var(--accent);
+    display: block;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+    </style>
+</head>
+
+<div id="content">
+    <h1>Arnau Camprubí - blog</h1>
+    <h2>Posts</h2>
+    <div loop="$page.subpages()">
+        <a class="post-title" href="$loop.it.permalink()" var="$loop.it.title"></a>
+        <span class="post-subtitle" var="$loop.it.date.format('January 02, 2006')"></span>
+    </div>
+</div>

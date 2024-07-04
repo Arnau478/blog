@@ -65,11 +65,11 @@ That's exactly what it is. Just look at it, and its simple usage:
 
 One of the most remarkable features are the parsers. I've mentioned them briefly before, but here's an example. Just picture this. You're inspecting a Windows executable. Let's use `xxd` first. You write `xxd foo.exe | less`. You get this:
 
-![xxd pe](https://private-user-images.githubusercontent.com/61841960/345958708-8c650697-d858-4c42-9f6e-6cbd157a1451.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAxMzE2NDMsIm5iZiI6MTcyMDEzMTM0MywicGF0aCI6Ii82MTg0MTk2MC8zNDU5NTg3MDgtOGM2NTA2OTctZDg1OC00YzQyLTlmNmUtNmNiZDE1N2ExNDUxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA0VDIyMTU0M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTUzM2MyMjhjN2MwM2NkYTIyY2ViOGVlNTE2YTFiY2MxZGEwMzY3NmNmMjAzMTYzYzdkOWYzZjUxOTczMmFkMDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.bT6NmYxJFhV2eZp1eUxFMlPOyLJICBh7bEuXYpuOGpQ)
+![xxd pe dump](xxd-pe-dump.png)
 
 What a mess! Oh, wait, let's add the `-R always` flag (which *obviously* stands for colo**r**ize).
 
-![xxd pe force color](https://private-user-images.githubusercontent.com/61841960/345958998-849598f5-3a99-4aa2-9e96-a679d113ce74.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAxMzE3ODcsIm5iZiI6MTcyMDEzMTQ4NywicGF0aCI6Ii82MTg0MTk2MC8zNDU5NTg5OTgtODQ5NTk4ZjUtM2E5OS00YWEyLTllOTYtYTY3OWQxMTNjZTc0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA0VDIyMTgwN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTViYWM2ZWI1YTRhNThhMDc5MGYxYTgwNDY2OGY5OTFjZDFhMDE5NWRiOWUyOGE5ZjA4NWI4ZGI5ODdmNTZkNzMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.CWDl0-UsNvevJMO-0VU5vbQKOI3KYbTgyLKDQ0L0Ado)
+![xxd pe dump color](xxd-pe-dump-color.png)
 
 Still, not great. Now let's use `hevi` instead of `xxd`:
 ![hevi pe parser](https://raw.githubusercontent.com/Arnau478/hevi/7f9b8b040f4adc7f96d11add5cce3fde12cdd8eb/web/parser.png)
